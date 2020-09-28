@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamble Bot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Gay</h1>
+            <hr>
+            This is a gambling simulator. Please dont cry.
+        </div>
+        <div class="input-group">
+            <input class="form-control" type="number" placeholder="n" name="n" id="n">
+            <input class="form-control" type="number" placeholder="Simulations" name="Simulations" id="sim">
+            <input class="form-control" type="number" placeholder="Gamble Amount" name="amount" id="amount">            
+        </div>
+        <br>
+        <input type="checkbox" id="round">
+        <span>With rounded results</span>
+        <hr>
+        <button class="btn btn-dark" id="calculateButton">Calculate</button>
+
+        <p id="output">This is the output</p>
+
+
+    </div>
+</body>
+</html>
+
+<script>
+    var button = document.getElementById("calculateButton");
+    var output = document.getElementById("output");
+    var n = document.getElementById("n").value;
+    var sim = document.getElementById("sim").value;
+    var amount = document.getElementById("amount").value;
+    var round = document.getElementById("round").checked;
+
+
+
+
+    button.onclick = Calculate;
+
+
+    function Calculate(){
+        var sum = 0;
+
+        var probs = CreateOutcomesP(n);
+        var k = n / HarmonicNumber(n);
+
+        for (let i = 0; i < sim; i++) {
+            var temp = FindPrize(probs) * amount / k;
+            if(round) temp = Math.round(temp);
+            sum += temp - amount;
+        }
+
+        sum /= sim;
+        
+        output.innerHTML = `Average win: <b>${sum}</b> <br> Rounds played: ${sim}`;
+    }
+
+    
+    function HarmonicNumber(n){
+        var sum = 0;
+
+        for(var i = 1; i < n; ++i) sum += 1 / i;
+        return sum;
+    }
+
+    function CreateOutcomesP(n){
+        var outcomes = [];
+        var j = 1 / n;
+        for(var i = 1; i < n + 1; ++i) outcomes.push(j / i);
+        return outcomes;
+    }
+
+    function FindPrize(array){
+        var rnd = Math.random() * ArraySum(array);
+
+        var current = array[0];
+        var i = 1;
+        for(i = 1; current < rnd; ++i) current += array[i];
+        return i;
+    }
+
+    function ArraySum(array){
+        var sum = 0;
+        array.forEach(item => {
+            sum += item;
+        });
+        return sum;
+    }
+</script>
