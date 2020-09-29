@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleeb</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ut nobis est explicabo neque dolorem. At, exercitationem in necessitatibus quam sit officiis nobis harum quae dignissimos ducimus quaerat, quia animi.
+                <div class="hidden" hidden>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores omnis nisi nemo, maiores suscipit architecto molestias minus magnam assumenda soluta quidem alias esse harum minima autem temporibus delectus unde quos facere praesentium. Ducimus placeat delectus porro animi totam reiciendis veniam harum a dignissimos voluptatem voluptatum deleniti maxime aut, eveniet fugit. Doloribus tenetur perspiciatis aliquid pariatur magni facilis blanditiis id! Itaque repellat eaque eos. Modi quae cupiditate consequuntur rerum consectetur sed doloribus, libero adipisci praesentium explicabo dolores eligendi, voluptate fuga, repellat natus ipsam dicta accusamus officia. Iusto voluptas consequatur beatae possimus nulla magni in fugit dolor porro corporis placeat minima id nisi repudiandae qui, eveniet nostrum, quibusdam exercitationem perspiciatis alias voluptatibus reprehenderit! Sed deleniti delectus ad explicabo, iusto pariatur asperiores at porro odio unde sequi, illo qui atque quam sunt perferendis aperiam ab neque. Itaque optio expedita inventore debitis accusantium architecto provident maxime consequuntur quasi repudiandae, esse obcaecati, veniam odit recusandae blanditiis, ab possimus? Voluptate voluptatum perspiciatis asperiores alias recusandae libero quaerat pariatur impedit exercitationem illo aliquid officia tenetur accusantium vitae voluptas quam et sapiente, excepturi, fugiat enim hic! Repellendus omnis, ea reprehenderit est fugit in asperiores ab, provident blanditiis totam amet. Animi dolores nesciunt sit sunt nemo architecto odio adipisci!
+                </div>
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi eligendi repellat consequuntur dolore, optio accusamus perferendis provident suscipit. Nisi harum totam nemo laudantium molestiae quas aut laboriosam, dolorum beatae! Consequatur?
+                <div class="hidden" hidden>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quis commodi voluptatum, suscipit deserunt reiciendis nostrum quae a vitae eos fugit alias, fuga ipsam omnis dolorum excepturi nemo reprehenderit veritatis pariatur nam voluptatem odio quia, dolor tempora! Cum quibusdam enim, aspernatur ut accusamus ratione ea consequuntur non et omnis cumque a tempore expedita exercitationem obcaecati recusandae dicta repellendus architecto voluptatibus necessitatibus. Iste eaque illo labore porro inventore voluptates iusto error quo, esse ullam molestiae architecto ut ex pariatur culpa! Vel quidem veritatis impedit possimus. Quasi saepe culpa amet, facilis qui quidem veniam fugit aliquid placeat accusamus, repellendus eaque asperiores officiis ipsum consectetur molestias cupiditate. Alias ipsa voluptatibus numquam reprehenderit ut. Veritatis iusto necessitatibus consequatur officia consectetur soluta. Odit suscipit sint repudiandae nihil animi sequi illo recusandae necessitatibus fuga. Harum magnam doloremque nesciunt vitae placeat accusantium, ex eos qui eaque, tempora nobis alias molestiae sapiente unde dolores dolor deleniti quasi voluptatum quia. Totam, delectus quae doloribus qui nobis minus necessitatibus dicta adipisci sit ipsum quis! Aperiam cupiditate rem ad modi? Soluta facilis tempora cum explicabo autem unde, exercitationem minus. Aspernatur velit, ut ipsum blanditiis dicta non nemo magni magnam fuga enim inventore, maxime eveniet dolores, delectus minima ea vel sequi doloremque!
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button class="btn btn-dark" id="toggle">Read More</button>
+    </div>
+</body>
+</html>
+
+<script>
+    var hidden = document.getElementsByClassName("hidden");
+    var toggleButton = document.getElementById("toggle");
+
+    var showing = false;
+
+    toggleButton.onclick = ToggleReadMore;
+
+    function ToggleReadMore(){
+        console.log("Button pressed!");
+
+        if(showing){                //If we show the text, we want to stop showing it
+            showing = false;
+            for (let i = 0; i < hidden.length; i++) {
+                hidden[i].setAttribute("hidden", "");
+            }
+
+            toggleButton.innerText = "Read More";
+        } 
+
+        else{
+            showing = true;
+            for (let i = 0; i < hidden.length; i++) {
+                hidden[i].removeAttribute("hidden", "");
+            }
+
+            toggleButton.innerText = "Show less";
+        }
+    }
+    
+
+</script>
